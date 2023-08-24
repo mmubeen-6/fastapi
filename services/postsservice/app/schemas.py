@@ -1,6 +1,6 @@
 from datetime import datetime
 
-from pydantic import BaseModel
+from pydantic import BaseModel, EmailStr
 
 
 class PostBase(BaseModel):
@@ -9,6 +9,7 @@ class PostBase(BaseModel):
     Args:
         BaseModel (pydantic.BaseModel): Pydantic base model.
     """
+
     title: str
     content: str
     is_published: bool = True
@@ -20,12 +21,23 @@ class PostCreate(PostBase):
     Args:
         PostBase (pydantic Model): Pydantic model representing a post.
     """
+
     ...
 
 
 class Post(PostBase):
     id: int
-    created_at: datetime
 
     class Config:
         orm_mode = True
+
+
+class UserCreate(BaseModel):
+    """Pydantic model representing a user.
+
+    Args:
+        BaseModel (pydantic.BaseModel): Pydantic base model.
+    """
+
+    email: EmailStr
+    password: str
