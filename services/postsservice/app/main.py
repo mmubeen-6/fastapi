@@ -1,3 +1,5 @@
+from typing import List
+
 import models
 from db import engine
 from routes import posts, users
@@ -15,3 +17,4 @@ app.include_router(users.router)
 @app.get("/")
 def test():
     return {"status": "success"}
+
