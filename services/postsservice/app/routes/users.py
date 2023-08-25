@@ -6,9 +6,7 @@ from utils import hash_password
 
 from fastapi import APIRouter, Depends, HTTPException, Response, status
 
-router = APIRouter(
-    prefix="/users"
-)
+router = APIRouter(prefix="/users", tags=["Users"])
 
 
 @router.post("/", status_code=status.HTTP_200_OK)

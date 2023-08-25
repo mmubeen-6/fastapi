@@ -7,9 +7,7 @@ from sqlalchemy.orm import Session
 
 from fastapi import APIRouter, Depends, HTTPException, Response, status
 
-router = APIRouter(
-    prefix="/posts"
-)
+router = APIRouter(prefix="/posts", tags=["Posts"])
 
 
 @router.get(
@@ -21,9 +19,7 @@ def get_posts(db: Session = Depends(get_db)):
 
 
 @router.get(
-    "/{post_id}",
-    status_code=status.HTTP_200_OK,
-    response_model=schemas.Post,
+    "/{post_id}", status_code=status.HTTP_200_OK, response_model=schemas.Post,
 )
 def get_post(post_id: int, db: Session = Depends(get_db)):
     post = db.query(models.Post).filter(models.Post.id == post_id).first()
@@ -63,9 +59,7 @@ def delete_post(post_id: int, db: Session = Depends(get_db)):
 
 
 @router.put(
-    "/{post_id}",
-    status_code=status.HTTP_200_OK,
-    response_model=schemas.Post,
+    "/{post_id}", status_code=status.HTTP_200_OK, response_model=schemas.Post,
 )
 def update_post(
     post_id: int,

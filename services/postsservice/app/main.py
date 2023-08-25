@@ -15,4 +15,3 @@ app.include_router(users.router)
 @app.get("/")
 def test():
     return {"status": "success"}
-
