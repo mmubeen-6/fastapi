@@ -2,7 +2,7 @@ from typing import List
 
 import models
 from db import engine
-from routes import posts, users
+from routes import posts, users, auth
 
 from fastapi import FastAPI
 
@@ -12,6 +12,7 @@ app = FastAPI()
 
 app.include_router(posts.router)
 app.include_router(users.router)
+app.include_router(auth.router)
 
 
 @app.get("/")

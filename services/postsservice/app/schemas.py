@@ -41,3 +41,19 @@ class UserCreate(BaseModel):
 
     email: EmailStr
     password: str
+
+
+class UserLogin(BaseModel):
+    """Pydantic model representing a user login schema
+
+    Args:
+        BaseModel (pydantic.BaseModel): Pydantic base model.
+    """
+
+    email: EmailStr
+    password: str
+
+
+class Token(BaseModel):
+    access_token: str
+    token_type: str

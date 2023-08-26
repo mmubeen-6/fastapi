@@ -3,3 +3,4 @@ uvicorn[standard]
 psycopg2==2.9.1
 sqlalchemy
 passlib[all]
+python-jose[cryptography]
